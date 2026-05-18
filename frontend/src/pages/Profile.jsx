@@ -380,7 +380,7 @@ const Profile = () => {
                 Experiments Checklist
               </p>
 
-              <div className="flex flex-col gap-3 max-h-[420px] overflow-y-auto pr-1">
+              <div className="flex flex-col gap-3 max-h-[420px] overflow-y-auto py-1 px-1">
                 {EXPERIMENTS_ROADMAP.map((exp) => {
                   const score = completedQuizzes[exp.id];
                   const isCompleted = score !== undefined;
@@ -683,7 +683,7 @@ const Profile = () => {
                 </p>
 
                 {Object.keys(completedQuizzes).length > 0 ? (
-                  <div className="relative pl-4 border-l border-slate-200 dark:border-slate-800 flex flex-col gap-6 max-h-[460px] overflow-y-auto pr-1">
+                  <div className="relative pl-4 border-l border-slate-200 dark:border-slate-800 flex flex-col gap-6 max-h-[460px] overflow-y-auto py-1.5 pr-1">
                     {Object.entries(completedQuizzes).map(([expId, score]) => {
                       const exp = EXPERIMENTS_ROADMAP.find(e => e.id === expId);
                       return (
