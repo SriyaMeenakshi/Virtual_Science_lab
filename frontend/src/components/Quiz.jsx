@@ -67,7 +67,7 @@ const Quiz = ({ experimentId, subject }) => {
   // Beautiful visual feedback helper classes
   const getOptionStyle = (index) => {
     if (!isAnswered) {
-      return "border-slate-300 hover:border-violet-500 hover:bg-violet-50 dark:border-slate-700 dark:hover:bg-slate-800 cursor-pointer";
+      return "border-slate-300 hover:border-violet-500 hover:bg-violet-50 text-slate-700 dark:text-slate-300 dark:hover:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-800 cursor-pointer";
     }
     if (index === currentQuestion.correct) {
       return "border-emerald-500 bg-emerald-50 text-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-300 font-semibold";
@@ -75,7 +75,7 @@ const Quiz = ({ experimentId, subject }) => {
     if (selectedOption === index && index !== currentQuestion.correct) {
       return "border-rose-500 bg-rose-50 text-rose-900 dark:bg-rose-950/30 dark:text-rose-300";
     }
-    return "border-slate-200 opacity-60 dark:border-slate-800";
+    return "border-slate-200 text-slate-500 dark:text-slate-400 opacity-60 dark:border-slate-800";
   };
 
   return (

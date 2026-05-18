@@ -108,7 +108,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="fade-in max-w-6xl mx-auto px-4 py-8 bg-slate-50 dark:bg-slate-950 min-h-screen">
+    <div className="fade-in max-w-6xl mx-auto px-4 py-8 bg-transparent min-h-screen">
       <BackButton label="Back to Lab" />
       
       {/* 1. HEADER HERO PANEL */}
@@ -175,8 +175,8 @@ const Profile = () => {
                     key={badge.id}
                     className={`relative overflow-hidden rounded-xl border p-4 flex gap-4 transition-all duration-300 ${
                       isUnlocked
-                        ? `bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-sm hover:scale-[1.02]`
-                        : "bg-slate-100/50 dark:bg-slate-900/20 border-slate-200/50 dark:border-slate-900/50 opacity-40 grayscale"
+                        ? `bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800/80 shadow-sm hover:scale-[1.02]`
+                        : "bg-slate-100/50 dark:bg-slate-900/10 border-slate-200/50 dark:border-slate-900/40 opacity-40 grayscale"
                     }`}
                   >
                     {/* Badge Emoji container */}
@@ -237,8 +237,8 @@ const Profile = () => {
                     to={exp.link}
                     className={`flex items-center justify-between p-3 rounded-xl border transition-all duration-200 text-left hover:scale-[1.01] hover:shadow-md ${
                       isCompleted
-                        ? "bg-slate-50/60 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800"
-                        : "bg-white dark:bg-slate-900 border-slate-200 hover:border-violet-500 dark:border-slate-800"
+                        ? "bg-slate-50/60 dark:bg-slate-950/40 border-slate-200 dark:border-slate-800/50"
+                        : "bg-white dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 hover:border-violet-500 dark:hover:border-violet-500"
                     }`}
                   >
                     <div className="flex items-center gap-3">
