@@ -106,12 +106,24 @@ const Quiz = ({ experimentId, subject }) => {
 
             {/* Gamification Rewards Panel */}
             <div className="flex flex-wrap justify-center gap-3 my-6">
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
-                ⚡ +50 XP Reward
-              </div>
+              {previousHighScore === -1 ? (
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                  ⚡ +100 XP Max Reward
+                </div>
+              ) : previousHighScore < questions.length ? (
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                  ⚡ +{(questions.length - previousHighScore) * 10} XP Improvement
+                </div>
+              ) : (
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20">
+                  ⚡ Practice Mode (+0 XP)
+                </div>
+              )}
+              
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
                 🏆 Subject Badge
               </div>
+              
               {previousHighScore !== -1 && (
                 <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black border ${
                   previousHighScore === questions.length
@@ -127,7 +139,7 @@ const Quiz = ({ experimentId, subject }) => {
               onClick={handleStart}
               className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-extrabold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105 active:scale-98 shadow-md shadow-purple-500/20 hover:shadow-lg hover:shadow-purple-500/30"
             >
-              Challenge Quiz →
+              {previousHighScore === -1 ? "Challenge Quiz →" : "Re-attempt Quiz 🔄"}
             </button>
           </motion.div>
         ) : !quizFinished ? (
