@@ -145,7 +145,7 @@ const Quiz = ({ experimentId, subject }) => {
                   onClick={handleStart}
                   className="px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-extrabold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105 active:scale-98 shadow-md shadow-cyan-500/20 hover:shadow-lg hover:shadow-cyan-500/30"
                 >
-                  {previousHighScore === -1 ? "Accept the Challenge" : "Re-attempt Challenge 🔄"}
+                  {previousHighScore === -1 ? "Accept the Challenge" : "Re-attempt Challenge"}
                 </button>
               </>
             ) : (
@@ -177,7 +177,7 @@ const Quiz = ({ experimentId, subject }) => {
                     </div>
                   ) : (
                     <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black bg-slate-500/10 text-slate-600 dark:text-slate-400 border border-slate-500/20">
-                      ⚡ Practice Mode (+0 XP)
+                       Practice Mode 
                     </div>
                   )}
 
@@ -199,7 +199,7 @@ const Quiz = ({ experimentId, subject }) => {
                   onClick={handleStart}
                   className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-extrabold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105 active:scale-98 shadow-md shadow-purple-500/20 hover:shadow-lg hover:shadow-purple-500/30"
                 >
-                  {previousHighScore === -1 ? "Challenge Quiz →" : "Re-attempt Quiz 🔄"}
+                  {previousHighScore === -1 ? "Challenge Quiz →" : "Re-attempt Quiz"}
                 </button>
               </>
             )}

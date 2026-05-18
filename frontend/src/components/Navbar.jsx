@@ -113,7 +113,7 @@ const Navbar = () => {
             (e.currentTarget.style.background = "rgba(255,255,255,0.12)")
           }
         >
-          <span>👤 Profile</span>
+          <span>Profile</span>
           <span
             style={{
               backgroundColor: "#eab308",
