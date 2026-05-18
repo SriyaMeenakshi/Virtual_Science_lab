@@ -190,7 +190,7 @@ const Profile = () => {
   const strongestSubject = subjectsList[0];
   const weakestSubject = subjectsList[subjectsList.length - 1];
 
-  // Dynamic Suggested Experiments
+  // Dynamic Suggested Experiments (only showing attempted quizzes that need score improvement)
   const getSuggestions = () => {
     let suggestions = [];
     const orderedSubjects = [weakestSubject.name, "Chemistry", "Biology", "Physics"].filter((v, i, a) => a.indexOf(v) === i);
@@ -199,20 +199,18 @@ const Profile = () => {
       const exps = subjectsMap[subj];
       for (const expId of exps) {
         const score = completedQuizzes[expId];
-        if (score === undefined || score < 5) {
+        if (score !== undefined && score < 5) {
           const originalExp = EXPERIMENTS_ROADMAP.find(e => e.id === expId);
           if (originalExp) {
             suggestions.push({
               ...originalExp,
-              reason: score === undefined ? "Not attempted yet" : `Improve Score (${score}/5)`
+              reason: `Improve Score (${score}/5)`
             });
           }
         }
-        if (suggestions.length >= 3) break;
       }
-      if (suggestions.length >= 3) break;
     }
-    return suggestions;
+    return suggestions.slice(0, 3);
   };
 
   const suggestedFocus = getSuggestions();
@@ -666,9 +664,9 @@ const Profile = () => {
                   </div>
                 ) : (
                   <div className="text-center py-6 border border-dashed border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50/30 dark:bg-slate-950/20">
-                    <span className="text-3xl block">🏆</span>
-                    <p className="font-bold text-xs text-emerald-500 dark:text-emerald-400 mt-2">All Science Lab Experiments Completed Perfectly!</p>
-                    <p className="text-[10px] text-slate-400 mt-1">Excellent work researcher, you are at maximum accuracy.</p>
+                    <span className="text-3xl block">🎯</span>
+                    <p className="font-bold text-xs text-indigo-500 dark:text-indigo-400 mt-2">No Quiz Re-attempts Needed!</p>
+                    <p className="text-[10px] text-slate-400 mt-1">All attempted quizzes are at perfect scores, or you have not attempted any quizzes yet.</p>
                   </div>
                 )}
               </div>
