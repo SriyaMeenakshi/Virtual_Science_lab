@@ -164,8 +164,21 @@ const Profile = () => {
         <div className="lg:col-span-2">
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 h-full">
             <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400 mb-6 flex items-center gap-2">
-              🏆 Subject & Comprehension Badges ({unlockedBadges.length} / 7)
+              🏆 Subject & Comprehension Badges ({unlockedBadges.length} / {BADGES_CONFIG.length})
             </h3>
+            
+            {/* Gained all badges congratulations card */}
+            {unlockedBadges.length === BADGES_CONFIG.length && (
+              <div className="bg-gradient-to-r from-yellow-500/15 via-amber-500/20 to-yellow-500/15 dark:from-yellow-500/5 dark:via-amber-500/10 dark:to-yellow-500/5 border border-amber-500/30 dark:border-amber-500/20 rounded-xl p-5 mb-6 text-center shadow-md relative overflow-hidden animate-pulse">
+                <span className="text-4xl mb-2 block">👑</span>
+                <h4 className="font-extrabold text-amber-700 dark:text-amber-400 text-base">
+                  Master Scientist Status Gained!
+                </h4>
+                <p className="text-slate-600 dark:text-slate-300 text-xs mt-1.5 leading-relaxed max-w-lg mx-auto">
+                  Outstanding achievement! You have successfully unlocked all <strong>{BADGES_CONFIG.length} badges</strong> across all science experiments. You have demonstrated perfect conceptual understanding and experimental precision! 🎓🔬✨
+                </p>
+              </div>
+            )}
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {BADGES_CONFIG.map((badge) => {

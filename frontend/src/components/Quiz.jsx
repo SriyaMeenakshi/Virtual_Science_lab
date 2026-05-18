@@ -253,7 +253,7 @@ const Quiz = ({ experimentId, subject }) => {
                   </span>
                   {xpReport && xpReport.xpEarned > 0 && (
                     <span className="text-slate-500 dark:text-slate-400 text-[10px] mt-0.5">
-                      Earned **+{xpReport.xpEarned} XP** (Total XP: {xpReport.totalXp} XP)
+                      Earned +{xpReport.xpEarned} XP (Total XP: {xpReport.totalXp} XP)
                     </span>
                   )}
                   {xpReport && xpReport.xpEarned === 0 && (
