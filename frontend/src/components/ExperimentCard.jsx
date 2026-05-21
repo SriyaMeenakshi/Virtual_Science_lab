@@ -1,6 +1,26 @@
 import { Link } from "react-router-dom";
 import { useProgress } from "../context/ProgressContext";
 
+const getSubjectIcon = (subject) => {
+  const normalizedSubject = subject?.trim().toLowerCase();
+
+  if (normalizedSubject === "biology") return "Bio";
+  if (normalizedSubject === "chemistry") return "Chem";
+  if (normalizedSubject === "physics") return "Phys";
+
+  return "Lab";
+};
+
+const getTypeClass = (subject) => {
+  const normalizedSubject = subject?.trim().toLowerCase();
+
+  if (normalizedSubject === "biology") return "biology";
+  if (normalizedSubject === "chemistry") return "chemistry";
+  if (normalizedSubject === "physics") return "physics";
+
+  return "";
+};
+
 const ExperimentCard = ({ id, title, description, link, subject }) => {
   const { completedIds, markExperimentComplete } = useProgress();
   const isCompleted = completedIds.has(id);
@@ -12,10 +32,13 @@ const ExperimentCard = ({ id, title, description, link, subject }) => {
   };
 
   return (
-    <Link to={link} style={{ textDecoration: "none" }}>
-      <div className="experiment-card card fade-in progress-card">
+    <Link to={link} className="card-link">
+      <div className={`experiment-card card fade-in progress-card ${getTypeClass(subject)}`}>
         <div className="progress-card-header">
-          <h3>{title}</h3>
+          <div>
+            <div className="card-icon">{getSubjectIcon(subject)}</div>
+            <h3>{title}</h3>
+          </div>
           {isCompleted && <span className="progress-status-pill">Completed</span>}
         </div>
         <p>{description}</p>
