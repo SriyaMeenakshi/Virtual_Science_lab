@@ -1,6 +1,7 @@
 import biologyData from "../../data/biology.json";
 import InstructionPanel from "../../components/InstructionPanel";
 import BackButton from "../../components/BackButton";
+import Quiz from "../../components/Quiz";
 
 const Mitochondria = () => {
   const experiment = biologyData.experiments.find(
@@ -58,6 +59,8 @@ const Mitochondria = () => {
         result={experiment.result}
         precautions={experiment.precautions}
       />
+
+      <Quiz experimentId="mitochondria" subject="biology" />
     </div>
   );
 };

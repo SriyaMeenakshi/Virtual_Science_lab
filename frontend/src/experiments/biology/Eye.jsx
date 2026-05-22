@@ -1,6 +1,7 @@
 import biologyData from "../../data/biology.json";
 import InstructionPanel from "../../components/InstructionPanel";
 import BackButton from "../../components/BackButton";
+import Quiz from "../../components/Quiz";
 
 const Eye = () => {
   // Find eye experiment from JSON
@@ -61,6 +62,8 @@ const Eye = () => {
         result={experiment.result}
         precautions={experiment.precautions}
       />
+
+      <Quiz experimentId="eye" subject="biology" />
     </div>
   );
 };

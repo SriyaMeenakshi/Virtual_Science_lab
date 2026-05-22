@@ -3,6 +3,10 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./router";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import { ThemeProvider } from "./context/ThemeContext";
+import { GamificationProvider } from "./context/GamificationContext";
+import { ProgressProvider } from "./context/ProgressContext";
+import "./styles/globals.css";
 import "./index.css";
 import enableSparkleCursor from "./components/SparkleCursor";
  
@@ -23,6 +27,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <ThemeProvider>
         <Root />
+        <GamificationProvider>
+          <ProgressProvider>
+            <AppRouter />
+          </ProgressProvider>
+        </GamificationProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>

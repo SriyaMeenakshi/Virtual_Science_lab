@@ -1,6 +1,7 @@
 import physicsData from "../../data/physics.json";
 import InstructionPanel from "../../components/InstructionPanel";
 import BackButton from "../../components/BackButton";
+import Quiz from "../../components/Quiz";
 
 const ThumbRule = () => {
   const experiment = physicsData.experiments.find(
@@ -58,6 +59,8 @@ const ThumbRule = () => {
         result={experiment.result}
         precautions={experiment.precautions}
       />
+
+      <Quiz experimentId="thumb-rule" subject="physics" />
     </div>
   );
 };

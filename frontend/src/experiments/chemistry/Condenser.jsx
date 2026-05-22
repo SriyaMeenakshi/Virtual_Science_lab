@@ -1,6 +1,7 @@
 import chemistryData from "../../data/chemistry.json";
 import InstructionPanel from "../../components/InstructionPanel";
 import BackButton from "../../components/BackButton";
+import Quiz from "../../components/Quiz";
 
 const Condenser = () => {
   const experiment = chemistryData.experiments.find(
@@ -58,6 +59,8 @@ const Condenser = () => {
         result={experiment.result}
         precautions={experiment.precautions}
       />
+
+      <Quiz experimentId="condenser" subject="chemistry" />
     </div>
   );
 };

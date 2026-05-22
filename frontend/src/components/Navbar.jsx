@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
-import { useState } from "react";
+import { useGamification } from "../context/GamificationContext";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { xp } = useGamification();
 
   return (
     <nav
@@ -92,6 +92,56 @@ const Navbar = () => {
           }
         >
           Physics
+        </Link>
+
+        <Link
+          style={{
+            ...linkStyle,
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            background: "rgba(255,255,255,0.12)",
+            border: "1px solid rgba(255,255,255,0.2)",
+          }}
+          to="/profile"
+          onMouseOver={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.22)")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.12)")
+          }
+        >
+          <span>Profile</span>
+          <span
+            style={{
+              backgroundColor: "#eab308",
+              color: "#1e293b",
+              padding: "2px 8px",
+              borderRadius: "20px",
+              fontSize: "11px",
+              fontWeight: "900",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.15)",
+            }}
+          >
+            ⭐ {xp} XP
+          </span>
+        </Link>
+
+        <Link
+          style={{
+            ...linkStyle,
+            background: "rgba(255,255,255,0.12)",
+            border: "1px solid rgba(255,255,255,0.2)",
+          }}
+          to="/progress"
+          onMouseOver={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.22)")
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style.background = "rgba(255,255,255,0.12)")
+          }
+        >
+          Progress
         </Link>
 
         <button

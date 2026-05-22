@@ -1,6 +1,7 @@
 import chemistryData from "../../data/chemistry.json";
 import InstructionPanel from "../../components/InstructionPanel";
 import BackButton from "../../components/BackButton";
+import Quiz from "../../components/Quiz";
 
 const ChemistryEquipment = () => {
   const experiment = chemistryData.experiments.find(
@@ -18,7 +19,7 @@ const ChemistryEquipment = () => {
       <h1>{experiment.title}</h1>
       <p>{experiment.description}</p>
 
-     <div style={{ position: "relative", marginTop: "16px" }}>
+      <div style={{ position: "relative", marginTop: "16px" }}>
   <iframe
     title={experiment.title}
     src={`${experiment.modelUrl}?ui_infos=0&ui_controls=0&ui_stop=0&ui_help=0`}
@@ -57,6 +58,8 @@ const ChemistryEquipment = () => {
         result={experiment.result}
         precautions={experiment.precautions}
       />
+
+      <Quiz experimentId="chemistry-equipment" subject="chemistry" />
     </div>
   );
 };

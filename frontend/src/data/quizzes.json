@@ -1,0 +1,328 @@
+{
+  "quizzes": {
+    "human-body": [
+      {
+        "question": "Which body system is primarily responsible for distributing oxygen and nutrients to organs?",
+        "options": ["Respiratory System", "Nervous System", "Circulatory System", "Digestive System"],
+        "correct": 2
+      },
+      {
+        "question": "The nervous system acts as the body's control center, coordinating actions and transmitting signals.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "Which organ is the primary site of gas exchange in the respiratory system?",
+        "options": ["Heart", "Lungs", "Trachea", "Stomach"],
+        "correct": 1
+      },
+      {
+        "question": "What is the primary function of the human digestive system?",
+        "options": ["Filtering blood toxins", "Breaking down food and absorbing nutrients", "Pumping oxygenated blood", "Controlling body temperature"],
+        "correct": 1
+      },
+      {
+        "question": "The human heart consists of exactly four chambers: two atria and two ventricles.",
+        "options": ["True", "False"],
+        "correct": 0
+      }
+    ],
+    "mitochondria": [
+      {
+        "question": "Mitochondria are commonly referred to as the ________ of the cell.",
+        "options": ["Brain", "Powerhouse", "Control Room", "Post Office"],
+        "correct": 1
+      },
+      {
+        "question": "Which membrane of the mitochondria contains folds called cristae?",
+        "options": ["Inner Membrane", "Outer Membrane", "Intermembrane Space", "Nuclear Membrane"],
+        "correct": 0
+      },
+      {
+        "question": "ATP, the cellular energy currency produced by mitochondria, stands for Adenosine Triphosphate.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "What is the primary function of the cristae folds in mitochondria?",
+        "options": ["Store extra proteins", "Increase surface area for ATP synthesis reactions", "Protect the cell from invaders", "Produce ribosomes"],
+        "correct": 1
+      },
+      {
+        "question": "Mitochondria have their own unique DNA, which is inherited almost exclusively from the maternal line.",
+        "options": ["True", "False"],
+        "correct": 0
+      }
+    ],
+    "eye": [
+      {
+        "question": "Which part of the eye acts like an adjustable lens, focusing light onto the retina?",
+        "options": ["Cornea", "Lens", "Iris", "Optic Nerve"],
+        "correct": 1
+      },
+      {
+        "question": "The human eye works similarly to a digital camera, capturing and focusing light.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "Which nerve carries visual information from the retina to the brain?",
+        "options": ["Auditory Nerve", "Optic Nerve", "Olfactory Nerve", "Sensory Nerve"],
+        "correct": 1
+      },
+      {
+        "question": "What is the pigmented, circular structure in the eye that controls the diameter of the pupil?",
+        "options": ["Sclera", "Iris", "Retina", "Choroid"],
+        "correct": 1
+      },
+      {
+        "question": "Photoreceptor cells, rods and cones, are located in which thin layer of the eye?",
+        "options": ["Cornea", "Retina", "Lens", "Pupil"],
+        "correct": 1
+      }
+    ],
+    "kidney": [
+      {
+        "question": "What is the structural and functional unit of the kidney responsible for filtering blood?",
+        "options": ["Neuron", "Nephron", "Alveolus", "Villus"],
+        "correct": 1
+      },
+      {
+        "question": "The kidneys play a major role in regulating the water and salt balance in the body.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "Which region forms the outer layer of the kidney's internal structure?",
+        "options": ["Medulla", "Cortex", "Renal Pelvis", "Ureter"],
+        "correct": 1
+      },
+      {
+        "question": "What is the primary tube that carries collected urine from the kidney to the urinary bladder?",
+        "options": ["Urethra", "Ureter", "Nephron Loop", "Renal Artery"],
+        "correct": 1
+      },
+      {
+        "question": "The renal medulla consists of multiple cone-shaped tissue masses called renal pyramids.",
+        "options": ["True", "False"],
+        "correct": 0
+      }
+    ],
+    "chemistry-equipment": [
+      {
+        "question": "Which piece of laboratory equipment is primarily used to hold, mix, and heat large amounts of liquids?",
+        "options": ["Graduated Cylinder", "Beaker", "Condenser", "Burette"],
+        "correct": 1
+      },
+      {
+        "question": "A graduated cylinder is designed for high-precision volume measurements, whereas a beaker is for estimation.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "What serves as the primary heat source for chemical reactions in a science laboratory?",
+        "options": ["Bunsen Burner", "Condenser", "Volcano Reaction", "Test Tube Holder"],
+        "correct": 0
+      },
+      {
+        "question": "Which of the following equipment is best suited to measure exactly 25.0 mL of liquid solution?",
+        "options": ["Beaker", "Erlenmeyer Flask", "Graduated Cylinder", "Petri Dish"],
+        "correct": 2
+      },
+      {
+        "question": "A test tube holder should always be used when heating substances inside a test tube.",
+        "options": ["True", "False"],
+        "correct": 0
+      }
+    ],
+    "volcano-experiment": [
+      {
+        "question": "An exothermic chemical reaction is characterized by what activity?",
+        "options": ["Absorbing heat from the surroundings", "Releasing heat/energy into the surroundings", "No change in temperature", "Absorbing carbon dioxide"],
+        "correct": 1
+      },
+      {
+        "question": "The bubbling eruption in the baking soda and vinegar reaction is caused by which gas?",
+        "options": ["Oxygen", "Hydrogen", "Carbon Dioxide", "Nitrogen"],
+        "correct": 2
+      },
+      {
+        "question": "Eruptions in chemical volcano models are driven by rapid gas production during chemical reactions.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "Household white vinegar is primarily a dilute solution of which substance?",
+        "options": ["Hydrochloric Acid", "Sulfuric Acid", "Acetic Acid", "Citric Acid"],
+        "correct": 2
+      },
+      {
+        "question": "Baking soda, chemically known as sodium bicarbonate, acts as a base in the volcano reaction.",
+        "options": ["True", "False"],
+        "correct": 0
+      }
+    ],
+    "condenser": [
+      {
+        "question": "A condenser's primary purpose is to convert liquid into gas through boiling.",
+        "options": ["True", "False"],
+        "correct": 1
+      },
+      {
+        "question": "What is the primary role of a condenser during a distillation process?",
+        "options": ["Heat up liquid mixtures", "Cool down vapour and liquefy it", "Measure the temperature of vapor", "Separate liquids by density"],
+        "correct": 1
+      },
+      {
+        "question": "In a laboratory glass condenser, which jacket is cooled by continuous water flow?",
+        "options": ["The inner tube carrying the hot vapor", "The outer sleeve surrounding the vapor tube", "Both inner and outer tubes", "Neither tube"],
+        "correct": 1
+      },
+      {
+        "question": "The conversion process of vapor turning back into a liquid state is formally called condensation.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "For maximum cooling efficiency, water should enter the condenser from the bottom port and exit from the top.",
+        "options": ["True", "False"],
+        "correct": 0
+      }
+    ],
+    "velocity-acceleration": [
+      {
+        "question": "Why is velocity considered a vector quantity rather than a scalar quantity?",
+        "options": ["It has only magnitude", "It has only direction", "It has both magnitude and direction", "It does not change with time"],
+        "correct": 2
+      },
+      {
+        "question": "What physical concept represents the rate of change of velocity over time?",
+        "options": ["Displacement", "Speed", "Acceleration", "Force"],
+        "correct": 2
+      },
+      {
+        "question": "If an object moves in a straight line at a constant speed, its acceleration is zero.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "What is the international standard (SI) unit of acceleration?",
+        "options": ["Meters per second (m/s)", "Meters per second squared (m/s²)", "Kilometers per hour (km/h)", "Newtons (N)"],
+        "correct": 1
+      },
+      {
+        "question": "An object that is slowing down (decelerating) has acceleration working in the opposite direction of its motion.",
+        "options": ["True", "False"],
+        "correct": 0
+      }
+    ],
+    "magnetic-field-wires": [
+      {
+        "question": "What happens when two parallel wires carry electric current in the exact same direction?",
+        "options": ["They attract each other", "They repel each other", "Nothing happens", "They rotate in opposite directions"],
+        "correct": 0
+      },
+      {
+        "question": "Conductors carrying electric currents do not generate any external magnetic fields.",
+        "options": ["True", "False"],
+        "correct": 1
+      },
+      {
+        "question": "The magnetic field lines formed around a single current-carrying wire are structured in what shape?",
+        "options": ["Straight lines radiating outward", "Concentric circular loops", "S-shaped curves", "Helical spirals"],
+        "correct": 1
+      },
+      {
+        "question": "If two parallel conductors carry electric currents in opposite directions, they repel one another.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "The physical force and magnetic attraction between parallel currents was first formulated by which physicist?",
+        "options": ["Michael Faraday", "Isaac Newton", "André-Marie Ampère", "Georg Ohm"],
+        "correct": 2
+      }
+    ],
+    "thumb-rule": [
+      {
+        "question": "In the Right-Hand Thumb Rule, what physical quantity does the thumb represent?",
+        "options": ["Direction of magnetic field loops", "Direction of electric current flow", "Force direction", "Voltage direction"],
+        "correct": 1
+      },
+      {
+        "question": "To correctly map magnetic field lines using the thumb rule, you should curl your LEFT hand's fingers.",
+        "options": ["True", "False"],
+        "correct": 1
+      },
+      {
+        "question": "Under the Right-Hand Thumb Rule, the direction of the curled fingers corresponds to the direction of the magnetic field.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "If an electric current is flowing straight upwards in a vertical wire, the magnetic field wraps counterclockwise when viewed from above.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "The Right-Hand Thumb Rule is also commonly known as Maxwell's Corkscrew Rule.",
+        "options": ["True", "False"],
+        "correct": 0
+      }
+    ],
+    "magnetic-field-direction": [
+      {
+        "question": "What is the geometry of magnetic field lines around a straight current-carrying conductor?",
+        "options": ["Concentric circular lines", "Parallel straight lines", "Hyperbolic paths", "Spiral paths"],
+        "correct": 0
+      },
+      {
+        "question": "Reversing the direction of current in a straight conductor will reverse the direction of its magnetic field.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "As you move further away from a current-carrying straight wire, the strength of the magnetic field increases.",
+        "options": ["True", "False"],
+        "correct": 1
+      },
+      {
+        "question": "The magnetic field strength around a straight wire is directly proportional to the magnitude of the current flowing through it.",
+        "options": ["True", "False"],
+        "correct": 0
+      },
+      {
+        "question": "Which portable tool is typically used to visually map and detect the magnetic field direction around a conductor?",
+        "options": ["Voltmeter", "Thermometer", "Magnetic Compass", "Barometer"],
+        "correct": 2
+      }
+    ],
+    "weekly-challenge": [
+      {
+        "question": "What biological organelle is responsible for cellular respiration, often called the powerhouse of the cell?",
+        "options": ["Nucleus", "Mitochondria", "Ribosome", "Golgi Apparatus"],
+        "correct": 1
+      },
+      {
+        "question": "In chemistry, which of the following pH values represents a highly acidic solution?",
+        "options": ["pH 2", "pH 7", "pH 12", "pH 9"],
+        "correct": 0
+      },
+      {
+        "question": "According to the Right-Hand Thumb Rule in physics, if the thumb points in the direction of current, what do the fingers represent?",
+        "options": ["Direction of force", "Direction of magnetic field", "Direction of voltage", "Direction of electric field"],
+        "correct": 1
+      },
+      {
+        "question": "What is the primary green pigment in plants that absorbs light during photosynthesis?",
+        "options": ["Carotenoid", "Chlorophyll", "Anthocyanin", "Xanthophyll"],
+        "correct": 1
+      },
+      {
+        "question": "Which subatomic particle carries a negative electrical charge?",
+        "options": ["Proton", "Neutron", "Electron", "Positron"],
+        "correct": 2
+      }
+    ]
+  }
+}

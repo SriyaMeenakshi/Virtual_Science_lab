@@ -1,6 +1,7 @@
 import physicsData from "../../data/physics.json";
 import InstructionPanel from "../../components/InstructionPanel";
 import BackButton from "../../components/BackButton";
+import Quiz from "../../components/Quiz";
 
 const MagneticFieldWires = () => {
   const experiment = physicsData.experiments.find(
@@ -58,6 +59,8 @@ const MagneticFieldWires = () => {
         result={experiment.result}
         precautions={experiment.precautions}
       />
+
+      <Quiz experimentId="magnetic-field-wires" subject="physics" />
     </div>
   );
 };
