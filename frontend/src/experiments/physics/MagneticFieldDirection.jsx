@@ -2,8 +2,10 @@ import physicsData from "../../data/physics.json";
 import InstructionPanel from "../../components/InstructionPanel";
 import BackButton from "../../components/BackButton";
 import Quiz from "../../components/Quiz";
+import ExperimentNotesPanel from "../../components/ExperimentNotesPanel";
 
 const MagneticFieldDirection = () => {
+
   const experiment = physicsData.experiments.find(
     (exp) => exp.id === "magnetic-field-direction"
   );
@@ -61,6 +63,9 @@ const MagneticFieldDirection = () => {
       />
 
       <Quiz experimentId="magnetic-field-direction" subject="physics" />
+      <div style={{ marginTop: "24px" }}>
+        <ExperimentNotesPanel experimentId="magnetic-field-direction" />
+      </div>
     </div>
   );
 };

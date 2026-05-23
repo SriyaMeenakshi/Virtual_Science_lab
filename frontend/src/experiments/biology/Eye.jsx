@@ -2,8 +2,10 @@ import biologyData from "../../data/biology.json";
 import InstructionPanel from "../../components/InstructionPanel";
 import BackButton from "../../components/BackButton";
 import Quiz from "../../components/Quiz";
+import ExperimentNotesPanel from "../../components/ExperimentNotesPanel";
 
 const Eye = () => {
+
   // Find eye experiment from JSON
   const experiment = biologyData.experiments.find(
     (exp) => exp.id === "eye"
@@ -64,8 +66,12 @@ const Eye = () => {
       />
 
       <Quiz experimentId="eye" subject="biology" />
+      <div style={{ marginTop: "24px" }}>
+        <ExperimentNotesPanel experimentId="eye" />
+      </div>
     </div>
   );
 };
 
 export default Eye;
+

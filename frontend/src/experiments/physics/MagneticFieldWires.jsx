@@ -2,8 +2,10 @@ import physicsData from "../../data/physics.json";
 import InstructionPanel from "../../components/InstructionPanel";
 import BackButton from "../../components/BackButton";
 import Quiz from "../../components/Quiz";
+import ExperimentNotesPanel from "../../components/ExperimentNotesPanel";
 
 const MagneticFieldWires = () => {
+
   const experiment = physicsData.experiments.find(
     (exp) => exp.id === "magnetic-field-wires"
   );
@@ -61,6 +63,9 @@ const MagneticFieldWires = () => {
       />
 
       <Quiz experimentId="magnetic-field-wires" subject="physics" />
+      <div style={{ marginTop: "24px" }}>
+        <ExperimentNotesPanel experimentId="magnetic-field-wires" />
+      </div>
     </div>
   );
 };

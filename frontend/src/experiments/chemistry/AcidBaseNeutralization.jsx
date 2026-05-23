@@ -1,4 +1,5 @@
 import React from "react";
+import ExperimentNotesPanel from "../../components/ExperimentNotesPanel";
 
 const AcidBaseNeutralization = () => {
   return (
@@ -120,6 +121,10 @@ const AcidBaseNeutralization = () => {
             <li>Dispose of chemicals safely.</li>
           </ul>
         </section>
+      </div>
+
+      <div className="mt-8">
+        <ExperimentNotesPanel experimentId="acid-base-neutralization" />
       </div>
     </div>
   );

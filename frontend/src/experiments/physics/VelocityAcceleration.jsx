@@ -2,8 +2,10 @@ import physicsData from "../../data/physics.json";
 import InstructionPanel from "../../components/InstructionPanel";
 import BackButton from "../../components/BackButton";
 import Quiz from "../../components/Quiz";
+import ExperimentNotesPanel from "../../components/ExperimentNotesPanel";
 
 const VelocityAcceleration = () => {
+
   const experiment = physicsData.experiments.find(
     (exp) => exp.id === "velocity-acceleration"
   );
@@ -61,6 +63,9 @@ const VelocityAcceleration = () => {
       />
 
       <Quiz experimentId="velocity-acceleration" subject="physics" />
+      <div style={{ marginTop: "24px" }}>
+        <ExperimentNotesPanel experimentId="velocity-acceleration" />
+      </div>
     </div>
   );
 };

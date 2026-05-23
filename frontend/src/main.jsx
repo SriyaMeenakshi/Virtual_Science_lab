@@ -6,6 +6,7 @@ import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { GamificationProvider } from "./context/GamificationContext";
 import { ProgressProvider } from "./context/ProgressContext";
+import { NotesProvider } from "./context/NotesContext";
 import "./styles/globals.css";
 import "./index.css";
 import enableSparkleCursor from "./components/SparkleCursor";
@@ -29,10 +30,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Root />
         <GamificationProvider>
           <ProgressProvider>
-            <AppRouter />
+            <NotesProvider>
+              <AppRouter />
+            </NotesProvider>
           </ProgressProvider>
         </GamificationProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
+

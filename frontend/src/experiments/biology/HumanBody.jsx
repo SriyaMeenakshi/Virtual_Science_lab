@@ -2,8 +2,10 @@ import biologyData from "../../data/biology.json";
 import InstructionPanel from "../../components/InstructionPanel";
 import BackButton from "../../components/BackButton";
 import Quiz from "../../components/Quiz";
+import ExperimentNotesPanel from "../../components/ExperimentNotesPanel";
 
 const HumanBody = () => {
+
   const experiment = biologyData.experiments.find(
     (exp) => exp.id === "human-body"
   );
@@ -61,8 +63,14 @@ const HumanBody = () => {
       />
 
       <Quiz experimentId="human-body" subject="biology" />
+      <div style={{ marginTop: "24px" }}>
+        <ExperimentNotesPanel experimentId="human-body" />
+      </div>
     </div>
   );
 };
+
+
+
 
 export default HumanBody;
