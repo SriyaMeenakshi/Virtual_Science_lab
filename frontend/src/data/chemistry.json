@@ -58,6 +58,25 @@
         "Observe inlet and outlet carefully.",
         "Understand temperature role."
       ]
+    },
+    {
+      "id": "titration-experiment",
+      "title": "Acid-Base Titration",
+      "description": "Simulation of an acid-base titration process",
+      "modelUrl": "https://sketchfab.com/models/b0b1e0dab5644a4a90b9bfc4e5d3181a/embed",
+      "aim": "To study the setup and process of acid-base titration.",
+      "theory": "Titration involves adding a known concentration of titrant to a solution of unknown concentration (analyte) until the equivalence point is reached, often indicated by a color change.",
+      "procedure": [
+        "Observe the titration apparatus setup (burette, stand, conical flask).",
+        "Understand the role of the titrant and analyte.",
+        "Note the color change at the equivalence point."
+      ],
+      "observation": "The apparatus setup is visible, and the process of drop-wise addition is understood.",
+      "result": "The concept of determining unknown concentration through titration is understood.",
+      "precautions": [
+        "Handle virtual acids and bases with care.",
+        "Ensure accurate reading of the burette meniscus."
+      ]
     }
   ]
 }

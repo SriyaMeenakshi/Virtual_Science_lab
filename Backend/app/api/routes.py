@@ -53,6 +53,12 @@ def get_chemistry_experiments():
                 "title": "Condenser",
                 "description": "Understand distillation apparatus",
                 "slug": "condenser"
+            },
+            {
+                "id": 4,
+                "title": "Acid-Base Titration",
+                "description": "Simulation of an acid-base titration process",
+                "slug": "titration-experiment"
             }
         ]
     }
