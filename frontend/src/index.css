@@ -584,6 +584,7 @@ body[data-theme="dark"] .tracker-bar {
     opacity: 0;
     transform: translate(-50%, -50%) scale(2);
   }
+}
 body[data-theme="dark"] .experiment-card h3 {
   color: #f8fafc;
 }
