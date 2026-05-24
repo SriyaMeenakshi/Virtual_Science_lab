@@ -10,6 +10,7 @@ import "./styles/globals.css";
 import "./index.css";
 import enableSparkleCursor from "./components/SparkleCursor";
  
+// eslint-disable-next-line react-refresh/only-export-components
 function Root() {
   const { sparkleEnabled } = useTheme();
 
