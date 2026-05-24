@@ -15,7 +15,9 @@ app = FastAPI(
 # CORS setup
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://virtual-science-lab-pearl.vercel.app/",
+    "http://localhost:5173"  #for local dev
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
