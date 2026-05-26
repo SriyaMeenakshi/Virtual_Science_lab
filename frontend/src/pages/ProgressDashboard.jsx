@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import BackButton from "../components/BackButton";
+import { useGamification } from "../context/GamificationContext";
 import { useProgress } from "../context/ProgressContext";
 import { EXPERIMENT_CATALOG, SUBJECTS } from "../data/experiments";
 
@@ -56,7 +57,8 @@ const ProgressBar = ({ value, tone = "blue" }) => (
 );
 
 const ProgressDashboard = () => {
-  const { records, completedIds, loading, usingLocalFallback, markExperimentComplete } = useProgress();
+  const { records, recommendations, completedIds, loading, usingLocalFallback, markExperimentComplete } = useProgress();
+  const { completedQuizzes, quizAttempts } = useGamification();
   const [weekAgo] = useState(() => Date.now() - 7 * 24 * 60 * 60 * 1000);
   const completedCount = completedIds.size;
   const totalCount = EXPERIMENT_CATALOG.length;
@@ -64,6 +66,19 @@ const ProgressDashboard = () => {
   const completedRecords = records.filter((record) => record.completed);
   const pendingExperiments = EXPERIMENT_CATALOG.filter((exp) => !completedIds.has(exp.id));
   const badges = getBadgeList(completedIds);
+  const latestAttemptsByExperiment = new Map();
+  quizAttempts.forEach((attempt) => {
+    if (!latestAttemptsByExperiment.has(attempt.experiment_id)) {
+      latestAttemptsByExperiment.set(attempt.experiment_id, attempt);
+    }
+  });
+  const quizAccuracy = quizAttempts.length
+    ? Math.round(
+        (quizAttempts.reduce((sum, attempt) => sum + attempt.score / attempt.total_questions, 0) /
+          quizAttempts.length) *
+          100
+      )
+    : 0;
 
   const weeklyCount = completedRecords.filter((record) => {
     if (!record.completion_date) return false;
@@ -121,11 +136,34 @@ const ProgressDashboard = () => {
           <small>Recent completions</small>
         </article>
         <article>
-          <span>Badges</span>
-          <strong>{badges.filter((badge) => badge.unlocked).length}</strong>
-          <small>Achievements unlocked</small>
+          <span>Quiz Accuracy</span>
+          <strong>{quizAccuracy}%</strong>
+          <small>{quizAttempts.length} attempts saved</small>
         </article>
       </section>
+
+      {recommendations && recommendations.length > 0 && (
+        <section className="tracker-panel fade-in" style={{ marginBottom: "24px", borderLeft: "4px solid #8b5cf6" }}>
+          <div className="tracker-panel-heading">
+            <h2>Suggested Experiments</h2>
+            <span>Personalized for you</span>
+          </div>
+          <div className="tracker-recommendations">
+            {recommendations.map((rec) => {
+              const expData = EXPERIMENT_CATALOG.find(e => e.id === rec.experiment_id);
+              return (
+                <Link to={expData?.link || "/"} key={rec.experiment_id} className="rec-card">
+                  <span className="rec-badge">{rec.reason}</span>
+                  <span className={`rec-difficulty difficulty-${rec.difficulty}`}>{rec.difficulty}</span>
+                  <h3 className="rec-title">{rec.title}</h3>
+                  <p className="rec-desc">{rec.description}</p>
+                  <span className="rec-action">Start Experiment &rarr;</span>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       <section className="tracker-panel">
         <div className="tracker-panel-heading">
@@ -137,12 +175,22 @@ const ProgressDashboard = () => {
             const subjectExperiments = EXPERIMENT_CATALOG.filter((exp) => exp.subject === subject);
             const subjectCompleted = subjectExperiments.filter((exp) => completedIds.has(exp.id)).length;
             const subjectPercent = Math.round((subjectCompleted / subjectExperiments.length) * 100);
+            const subjectQuizScores = subjectExperiments
+              .map((exp) => completedQuizzes[exp.id])
+              .filter((score) => score !== undefined);
+            const subjectQuizAccuracy = subjectQuizScores.length
+              ? Math.round(
+                  (subjectQuizScores.reduce((sum, score) => sum + score, 0) /
+                    (subjectQuizScores.length * 5)) *
+                    100
+                )
+              : 0;
 
             return (
               <div className="tracker-subject-row" key={subject}>
                 <div>
                   <strong>{formatSubject(subject)}</strong>
-                  <span>{subjectCompleted}/{subjectExperiments.length} completed</span>
+                  <span>{subjectCompleted}/{subjectExperiments.length} completed - {subjectQuizAccuracy}% quiz accuracy</span>
                 </div>
                 <ProgressBar value={subjectPercent} tone={subject} />
                 <b>{subjectPercent}%</b>
@@ -212,7 +260,12 @@ const ProgressDashboard = () => {
                 >
                   <div>
                     <strong>{record.title}</strong>
-                    <span>{formatSubject(record.subject)} - Completed {formatDate(record.completion_date)}</span>
+                    <span>
+                      {formatSubject(record.subject)} - Completed {formatDate(record.completion_date)}
+                      {latestAttemptsByExperiment.has(record.experiment_id)
+                        ? ` - Latest quiz ${latestAttemptsByExperiment.get(record.experiment_id).score}/${latestAttemptsByExperiment.get(record.experiment_id).total_questions}`
+                        : " - Quiz pending"}
+                    </span>
                   </div>
                   <small>Revisit</small>
                 </Link>

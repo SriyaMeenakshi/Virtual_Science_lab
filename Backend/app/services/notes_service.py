@@ -1,69 +1,55 @@
-import os
-import sqlite3
+"""
+notes_service.py — MongoDB version (replaces sqlite3)
+
+Collection: experiment_notes
+  {
+      user_id:       str,
+      experiment_id: str,
+      observations:  str | None,
+      conclusions:   str | None,
+      learnings:     str | None,
+      notes:         str | None,
+      created_at:    str | None,   # ISO-8601 UTC
+      updated_at:    str | None,
+  }
+  Compound unique index on (user_id, experiment_id)
+"""
+
 from datetime import datetime, timezone
 from typing import Optional, Dict, Any
 
-DB_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "..", "..", "gamification.db"
-)
+from pymongo import MongoClient, ASCENDING
+from app.core.config import MONGODB_URI
 
+_client: MongoClient = None
+_db = None
 
-def get_db_connection():
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    return conn
-
+def _get_db():
+    global _client, _db
+    if _client is None:
+        _client = MongoClient(MONGODB_URI)
+        _db = _client["virtual_science_lab"]
+        _db["experiment_notes"].create_index(
+            [("user_id", ASCENDING), ("experiment_id", ASCENDING)],
+            unique=True,
+        )
+    return _db
 
 def init_db():
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute(
-        """
-        CREATE TABLE IF NOT EXISTS experiment_notes (
-            user_id TEXT NOT NULL,
-            experiment_id TEXT NOT NULL,
-            observations TEXT,
-            conclusions TEXT,
-            learnings TEXT,
-            notes TEXT,
-            created_at TEXT,
-            updated_at TEXT,
-            PRIMARY KEY (user_id, experiment_id)
-        )
-        """
-    )
-    conn.commit()
-    conn.close()
+    _get_db()
 
+def _serialize(doc) -> Dict[str, Any]:
+    doc.pop("_id", None)
+    return doc
 
 def get_user_experiment_notes(user_id: str, experiment_id: str) -> Optional[Dict[str, Any]]:
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute(
-        """
-        SELECT user_id, experiment_id, observations, conclusions, learnings, notes, created_at, updated_at
-        FROM experiment_notes
-        WHERE user_id = ? AND experiment_id = ?
-        """,
-        (user_id, experiment_id),
+    db = _get_db()
+    doc = db["experiment_notes"].find_one(
+        {"user_id": user_id, "experiment_id": experiment_id}
     )
-    row = cursor.fetchone()
-    conn.close()
-
-    if not row:
+    if not doc:
         return None
-
-    return {
-        "user_id": row["user_id"],
-        "experiment_id": row["experiment_id"],
-        "observations": row["observations"],
-        "conclusions": row["conclusions"],
-        "learnings": row["learnings"],
-        "notes": row["notes"],
-        "created_at": row["created_at"],
-        "updated_at": row["updated_at"],
-    }
-
+    return _serialize(doc)
 
 def upsert_user_experiment_notes(
     user_id: str,
@@ -72,49 +58,29 @@ def upsert_user_experiment_notes(
     conclusions: Optional[str] = None,
     learnings: Optional[str] = None,
     notes: Optional[str] = None,
-):
+) -> Dict[str, Any]:
+    db = _get_db()
     now = datetime.now(timezone.utc).isoformat()
 
-    # Keep `notes` as an optional combined field, but primary usage is the structured fields.
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute(
-        """
-        INSERT INTO experiment_notes (
-            user_id,
-            experiment_id,
-            observations,
-            conclusions,
-            learnings,
-            notes,
-            created_at,
-            updated_at
-        )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        ON CONFLICT(user_id, experiment_id) DO UPDATE SET
-            observations = excluded.observations,
-            conclusions = excluded.conclusions,
-            learnings = excluded.learnings,
-            notes = excluded.notes,
-
-            updated_at = ?
-        """,
-        (
-            user_id,
-            experiment_id,
-            observations,
-            conclusions,
-            learnings,
-            notes,
-            now,
-            now,
-            now,
-        ),
+    existing = db["experiment_notes"].find_one(
+        {"user_id": user_id, "experiment_id": experiment_id}
     )
+    created_at = existing["created_at"] if existing else now
 
-    conn.commit()
-    conn.close()
-
-    # Return latest
+    db["experiment_notes"].update_one(
+        {"user_id": user_id, "experiment_id": experiment_id},
+        {
+            "$set": {
+                "user_id":       user_id,
+                "experiment_id": experiment_id,
+                "observations":  observations,
+                "conclusions":   conclusions,
+                "learnings":     learnings,
+                "notes":         notes,
+                "created_at":    created_at,
+                "updated_at":    now,
+            }
+        },
+        upsert=True,
+    )
     return get_user_experiment_notes(user_id, experiment_id)
-

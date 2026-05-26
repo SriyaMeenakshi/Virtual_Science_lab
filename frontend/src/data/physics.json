@@ -6,6 +6,7 @@
       "id": "velocity-acceleration",
       "title": "Velocity and Acceleration",
       "description": "Understanding motion concepts",
+      "difficulty": "Beginner",
       "modelUrl": "https://sketchfab.com/models/070490e0adaf4c9785a7c97bcda465db/embed",
       "aim": "To study velocity and acceleration.",
       "theory": "Velocity is the rate of change of displacement, while acceleration is the rate of change of velocity.",
@@ -25,6 +26,7 @@
       "id": "magnetic-field-wires",
       "title": "Magnetic Field Between Two Wires",
       "description": "Interaction of magnetic fields",
+      "difficulty": "Intermediate",
       "modelUrl": "https://sketchfab.com/models/a3c1edfdf088448ca67c6f0f47a5c370/embed",
       "aim": "To study magnetic interaction between current-carrying wires.",
       "theory": "Current-carrying conductors produce magnetic fields which interact with each other.",
@@ -44,6 +46,7 @@
       "id": "thumb-rule",
       "title": "Right-Hand Thumb Rule",
       "description": "Direction of magnetic field",
+      "difficulty": "Beginner",
       "modelUrl": "https://sketchfab.com/models/c22ca80d7f964e548305617615d063df/embed",
       "aim": "To determine the direction of magnetic field using thumb rule.",
       "theory": "The right-hand thumb rule helps determine the direction of magnetic field around a conductor.",
@@ -63,6 +66,7 @@
       "id": "magnetic-field-direction",
       "title": "Direction of Magnetic Field Around a Conductor",
       "description": "Magnetic field around straight conductor",
+      "difficulty": "Advanced",
       "modelUrl": "https://sketchfab.com/models/fc4dac92f4344db188c37bc65a125288/embed",
       "aim": "To determine the direction of magnetic field around a straight conductor.",
       "theory": "A current-carrying straight conductor produces circular magnetic field lines around it.",
@@ -77,6 +81,28 @@
         "Observe current direction.",
         "Follow field lines carefully."
       ]
-    }
+    },
+    {
+  "id": "solar-system",
+  "title": "Solar System",
+  "description": "Explore planets and the structure of the solar system in 3D",
+  "modelUrl": "https://sketchfab.com/models/779eee9d756b4cb7be84f0073fc1985f/embed",
+  "aim": "To study the structure and organization of the solar system.",
+  "theory": "The solar system consists of the Sun and celestial bodies orbiting around it including planets, moons, asteroids, and comets. Gravity keeps these bodies moving in stable paths.",
+  "procedure": [
+    "Load the 3D solar system model.",
+    "Rotate and zoom to inspect planets and their movement around the Sun.",
+    "Observe relative positions of planets around the Sun.",
+    "Study planetary arrangement and structure."
+  ],
+  "observation": "Different planets and their arrangement within the solar system are clearly visible.",
+  "result": "The structure and organization of the solar system is understood.",
+  "precautions": [
+    "Observe planetary arrangement carefully.",
+    "Rotate the model for better understanding.",
+    "Zoom in to inspect planets individually."
+  ]
+}
+    
   ]
 }
